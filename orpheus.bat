@@ -224,7 +224,7 @@ goto choice
 
 :upd
 echo @echo off >>"%tmp%\update.bat"
-echo timeout /t 1 >>"%tmp%\update.bat"
+echo timeout /t 3 >>"%tmp%\update.bat"
 echo if exist "%tmp%\orpheus" rmdir /s /q "%tmp%\orpheus">>"%tmp%\update.bat"
 echo if exist "%tmp%\orpheus.zip" del /f "%tmp%\orpheus.zip">>"%tmp%\update.bat"
 echo if not exist "%tmp%\orpheus" mkdir "%tmp%\orpheus">>"%tmp%\update.bat"
@@ -233,7 +233,7 @@ echo powershell Expand-Archive "%tmp%\orpheus.zip" -DestinationPath "%tmp%\orphe
 echo xcopy "%tmp%\orpheus\orpheus-main\*" "%cd%" /E /I /Y>>"%tmp%\update.bat"
 echo if exist "%tmp%\orpheus" rmdir /s /q "%tmp%\orpheus">>"%tmp%\update.bat"
 echo if exist "%tmp%\orpheus.zip" del /f "%tmp%\orpheus.zip">>"%tmp%\update.bat"
-echo timeout /t 1 >>"%tmp%\update.bat"
+echo timeout /t 3 >>"%tmp%\update.bat"
 echo start cmd /c "orpheus.bat">>"%tmp%\update.bat"
 start cmd /c "%tmp%\update.bat"
 exit
