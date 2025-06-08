@@ -37,13 +37,11 @@ set dl_unitedstates=0
 for %%C in (argentina australia austria belgium brasil canada chile colombia denmark finland france germany ireland italy luxembourg mexico netherlands newzealand norway portugal spain sweden switzerland unitedkingdom unitedstates) do (
     if !dl_%%C! equ 1 set /a available_countries+=1
 )
-if not exist "%cd%\config" (
-    orpheus.py settings refresh
-)
 ::restore health
 if exist "%tmp%\update.bat" del /f "%tmp%\update.bat"
 if not exist "%cd%\.setting" goto upd
 if not exist "%cd%\orpheus.py" goto upd
+if not exist "%cd%\config" orpheus.py settings refresh
 ::update checker
 if exist "%tmp%\orpheus_version.txt" del /f "%tmp%\orpheus_version.txt"
 curl -s "https://raw.githubusercontent.com/linyv4ik/update/main/orpheus_version.txt" --output "%tmp%\orpheus_version.txt"
