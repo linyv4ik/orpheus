@@ -2,7 +2,6 @@
 chcp 65001 > nul
 setlocal enabledelayedexpansion
 title orpheus
-set /a available_countries=0
 set version=1.000
 
 ::Settings
@@ -34,8 +33,14 @@ set dl_unitedkingdom=0
 set dl_unitedstates=0
 
 ::далі не чіпати нічого
+::підрахунок активних країн та загальну кількість країн
+set /a available_countries=0
 for %%C in (argentina australia austria belgium brasil canada chile colombia denmark finland france germany ireland italy luxembourg mexico netherlands newzealand norway portugal spain sweden switzerland unitedkingdom unitedstates) do (
     if !dl_%%C! equ 1 set /a available_countries+=1
+)
+set /a total_countries=0
+for %%C in (argentina australia austria belgium brasil canada chile colombia denmark finland france germany ireland italy luxembourg mexico netherlands newzealand norway portugal spain sweden switzerland unitedkingdom unitedstates ) do (
+    set /a total_countries+=1
 )
 ::restore health
 if exist "%tmp%\update.bat" del /f "%tmp%\update.bat"
@@ -55,7 +60,7 @@ set dl=1
 goto menu
 
 :menu
-title orpheus v %version%   Країн доступно на момент оновлення: %available_countries%/25
+title orpheus v %version%   Країн доступно на момент оновлення: %available_countries%/%total_countries%
 echo.
 echo Введіть посилання на альбом Qobuz або виберіть бажану опцію з меню
 echo.
@@ -248,7 +253,10 @@ xcopy "%cd%\.setting\%country%.json" "%cd%\config" /y > nul
 rename "%cd%\config\%country%.json" settings.json
 echo.
 if %input% == 1 (
-	"%cd%\orpheus.py" url.txt
+	for /f "delims=" %%a in (url.txt) do (
+    set url=%%a
+        "%cd%\orpheus.py" !url!
+)
 ) else (
     "%cd%\orpheus.py" %input%
 )
