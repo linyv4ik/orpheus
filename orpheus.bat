@@ -39,7 +39,7 @@ for %%C in (argentina australia austria belgium brasil canada chile colombia den
     if !dl_%%C! equ 1 set /a available_countries+=1
 )
 set /a total_countries=0
-for %%C in (argentina australia austria belgium brasil canada chile colombia denmark finland france germany ireland italy luxembourg mexico netherlands newzealand norway portugal spain sweden switzerland unitedkingdom unitedstates ) do (
+for %%C in (argentina australia austria belgium brasil canada chile colombia denmark finland france germany ireland italy luxembourg mexico netherlands newzealand norway portugal spain sweden switzerland unitedkingdom unitedstates) do (
     set /a total_countries+=1
 )
 ::restore health
