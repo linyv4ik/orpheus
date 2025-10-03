@@ -2,7 +2,7 @@
 chcp 65001 > nul
 setlocal enabledelayedexpansion
 title orpheus
-set version=1.005
+set version=1.006
 
 ::Settings
 ::активація країни: 0=вимкнена 1=активна
