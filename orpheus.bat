@@ -38,10 +38,10 @@ set /a available_countries=0
 for %%C in (argentina australia austria belgium brasil canada chile colombia denmark finland france germany ireland italy luxembourg mexico netherlands newzealand norway portugal spain sweden switzerland unitedkingdom unitedstates) do (
     if !dl_%%C! equ 1 set /a available_countries+=1
 )
-set /a total_countries=0
-for %%C in (argentina australia austria belgium brasil canada chile colombia denmark finland france germany ireland italy luxembourg mexico netherlands newzealand norway portugal spain sweden switzerland unitedkingdom unitedstates) do (
-    set /a total_countries+=1
-)
+::set /a total_countries=0
+::for %%C in (argentina australia austria belgium brasil canada chile colombia denmark finland france germany ireland italy luxembourg mexico netherlands newzealand norway portugal spain sweden switzerland unitedkingdom unitedstates) do (
+::    set /a total_countries+=1
+::)
 ::restore health
 if exist "%tmp%\update.bat" del /f "%tmp%\update.bat"
 if not exist "%cd%\.setting" goto upd
@@ -60,7 +60,8 @@ set dl=1
 goto menu
 
 :menu
-title orpheus v %version%   Країн доступно на момент оновлення: %available_countries%/%total_countries%
+::title orpheus v %version%   Країн доступно на момент оновлення: %available_countries%/%total_countries%
+title orpheus v %version%   Країн доступно на момент оновлення: %available_countries%
 echo.
 echo Введіть посилання на альбом Qobuz або виберіть бажану опцію з меню
 echo.
