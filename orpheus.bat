@@ -2,7 +2,7 @@
 chcp 65001 > nul
 setlocal enabledelayedexpansion
 title orpheus
-set version=1.007
+set version=1.008
 
 ::Settings
 ::активація країни: 0=вимкнена 1=активна
@@ -16,7 +16,7 @@ set dl_chile=0
 set dl_colombia=0
 set dl_denmark=0
 set dl_finland=0
-set dl_france=0
+set dl_france=1
 set dl_germany=0
 set dl_ireland=0
 set dl_italy=0
@@ -30,7 +30,7 @@ set dl_spain=0
 set dl_sweden=0
 set dl_switzerland=0
 set dl_unitedkingdom=0
-set dl_unitedstates=1
+set dl_unitedstates=0
 
 ::далі не чіпати нічого
 ::підрахунок активних країн та загальну кількість країн
